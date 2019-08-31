@@ -4,7 +4,7 @@ const sinonChai = require('sinon-chai');
 
 const {
   detectURL, detectHostName, detectRootDomain
-} = require('../../../lib/utils/detect');
+} = require('../../../').detect;
 
 chai.should();
 
