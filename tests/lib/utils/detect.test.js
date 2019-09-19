@@ -3,7 +3,7 @@ const sinon = require('sinon');
 const sinonChai = require('sinon-chai');
 
 const {
-  detectURL, detectHostName, detectRootDomain
+  detectURL, detectHostName, detectRootDomain, isBoolean
 } = require('../../../').detect;
 
 chai.should();
@@ -92,4 +92,27 @@ describe('Detect Utility Tests', () => {
       expect(resp).to.equal(expected);
     });
   });
+  
+  describe('isBoolean method', () => {
+    it('should return false when passed a string', () => {
+      const testData = 'true'; // a string that says "true"
+      const expected = false; // not a boolean
+      const resp = isBoolean(testData);
+      expect(resp).to.equal(expected);
+    });
+
+    it('should return false when passed an int', () => {
+      const testData = 0; // a string that says 0
+      const expected = false; // not a boolean
+      const resp = isBoolean(testData);
+      expect(resp).to.equal(expected);
+    });
+    
+    it('should return true when passed a boolean', () => {
+      const testData = false; // a string that says 0
+      const expected = true; // not a boolean
+      const resp = isBoolean(testData);
+      expect(resp).to.equal(expected);
+    });
+  }); 
 });
