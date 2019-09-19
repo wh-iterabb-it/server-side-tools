@@ -120,28 +120,28 @@ describe('Detect Utility Tests', () => {
     it('should return false when passed a string', () => {
       const testData = 'true';
       const expected = false;
-      const resp = isBoolean(testData);
+      const resp = isFinite(testData);
       expect(resp).to.equal(expected);
     });
 
     it('should return false when passed an int that is negative', () => {
       const testData = -1.4501;
       const expected = false;
-      const resp = isBoolean(testData);
+      const resp = isFinite(testData);
       expect(resp).to.equal(expected);
     });
     
     it('should return false when passed a boolean', () => {
       const testData = false;
       const expected = false;
-      const resp = isBoolean(testData);
+      const resp = isFinite(testData);
       expect(resp).to.equal(expected);
     });
     
     it('should return false when passed a boolean', () => {
       const testData = 1337;
       const expected = true;
-      const resp = isBoolean(testData);
+      const resp = isFinite(testData);
       expect(resp).to.equal(expected);
     });
   });
@@ -150,21 +150,51 @@ describe('Detect Utility Tests', () => {
     it('should return false when passed a string', () => {
       const testData = 'true';
       const expected = false;
-      const resp = isBoolean(testData);
+      const resp = isInteger(testData);
       expect(resp).to.equal(expected);
     });
 
     it('should return true when passed an int', () => {
       const testData = 1;
       const expected = true; 
-      const resp = isBoolean(testData);
+      const resp = isInteger(testData);
       expect(resp).to.equal(expected);
     });
     
     it('should return false when passed a boolean', () => {
       const testData = false; 
       const expected = false; 
-      const resp = isBoolean(testData);
+      const resp = isInteger(testData);
+      expect(resp).to.equal(expected);
+    });
+  });
+  
+  describe('isNull method', () => {
+    it('should return false when passed a string', () => {
+      const testData = 'true';
+      const expected = false;
+      const resp = isNull(testData);
+      expect(resp).to.equal(expected);
+    });
+
+    it('should return false when passed an int', () => {
+      const testData = 1;
+      const expected = false; 
+      const resp = isNull(testData);
+      expect(resp).to.equal(expected);
+    });
+    
+    it('should return false when passed a boolean', () => {
+      const testData = true;
+      const expected = false; 
+      const resp = isNull(testData);
+      expect(resp).to.equal(expected);
+    });
+    
+    it('should return true when passed a null', () => {
+      const testData = null; 
+      const expected = true; 
+      const resp = isNull(testData);
       expect(resp).to.equal(expected);
     });
   });
