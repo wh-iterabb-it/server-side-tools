@@ -3,7 +3,7 @@ const sinon = require('sinon');
 const sinonChai = require('sinon-chai');
 
 const {
-  detectURL, detectHostName, detectRootDomain, isBoolean, isFinite, isInteger, isNull, isRegex, isString
+  detectURL, detectHostName, detectRootDomain, isBoolean, isFinite, isInteger, isNull, isString
 } = require('../../../').detect;
 
 chai.should();
