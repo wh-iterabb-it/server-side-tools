@@ -198,4 +198,34 @@ describe('Detect Utility Tests', () => {
       expect(resp).to.equal(expected);
     });
   });
+
+  describe('isString method', () => {
+    it('should return true when passed a string', () => {
+      const testData = 'true';
+      const expected = true;
+      const resp = isString(testData);
+      expect(resp).to.equal(expected);
+    });
+
+    it('should return false when passed an int', () => {
+      const testData = 1;
+      const expected = false;
+      const resp = isString(testData);
+      expect(resp).to.equal(expected);
+    });
+
+    it('should return false when passed a boolean', () => {
+      const testData = true;
+      const expected = false;
+      const resp = isString(testData);
+      expect(resp).to.equal(expected);
+    });
+
+    it('should return false when passed a null', () => {
+      const testData = null;
+      const expected = false;
+      const resp = isString(testData);
+      expect(resp).to.equal(expected);
+    });
+  });
 });
