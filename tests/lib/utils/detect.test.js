@@ -3,7 +3,7 @@ const sinon = require('sinon');
 const sinonChai = require('sinon-chai');
 
 const {
-  detectURL, detectHostName, detectRootDomain, isBoolean, isFinite, isInteger, isNull, isString
+  detectURL, detectHostName, detectRootDomain, isBoolean, isFinite, isInteger, isNull, isString, toNumber
 } = require('../../../').detect;
 
 chai.should();
@@ -228,4 +228,21 @@ describe('Detect Utility Tests', () => {
       expect(resp).to.equal(expected);
     });
   });
+
+
+    describe('toNumber method', () => {
+      it('should return 123 when passed a string', () => {
+        const testData = '123';
+        const expected = 123;
+        const resp = toNumber(testData);
+        expect(resp).to.equal(expected);
+      });
+
+      it('should return 0 when passed a null', () => {
+        const testData = null;
+        const expected = 0;
+        const resp = toNumber(testData);
+        expect(resp).to.equal(expected);
+      });
+    });
 });
