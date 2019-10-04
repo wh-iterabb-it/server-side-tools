@@ -37,8 +37,9 @@ npm install --save https://github.com/wh-iterabb-it/server-side-tools
   * isNull - true for null value
   * isString - true for string value
 * format [usage](#format-usage)
-  * toHHMMSS - turns an amount of seconds into days, hours, minutes seconds
-  * toHHMMSS - turns an amount of seconds into hours, minutes seconds
+  * toHHMMSS - turns an amount of seconds into `${days}:${hours}:${minutes}:${seconds}`
+  * toHHMMSS - turns an amount of seconds into `${hours}:${minutes}:${seconds}`
+  * formatMoney - this will return a string, formatted $xx.xx for a given int
 * fs
 
 * logger - all of winston logger functions [usage](#logger-usage)
@@ -48,7 +49,7 @@ npm install --save https://github.com/wh-iterabb-it/server-side-tools
 
 ## Usage
 
-#### Convert Usage
+### Convert Usage
 
 ```javascript
 const { celsiusToFahrenheit, fahrenheitToCelsius } = require('server-side-tools').convert;
@@ -63,7 +64,7 @@ logger.info(freezing_fahrenheit);
 ```
 
 
-#### Detect Usage
+### Detect Usage
 
 ```javascript
 const { toNumber } = require('server-side-tools').convert;
@@ -76,8 +77,34 @@ number = toNumber(number);
 // number === 123
 console.log(isNumber(number)); // true
 ```
+### Format Usage
+```javascript
+const { toHHMMSS, toDDHHMMSS, formatMoney } = require('server-side-tools').format;
+```
 
-#### Logger Usage
+#### toDDHHMMSS
+#### toHHMMSS
+```javascript
+// the application uptime in seconds
+const time = process.uptime();
+// lets just say its 90066
+
+console.log(`${toDDHHMMSS(time)}`);
+// 01:01:01:06
+
+console.log(`${toHHMMSS(time)}`);
+// 25:01:06
+```
+
+#### formatMoney
+```javascript
+const bitcoin = 705726246.26999999;
+
+console.log(formatMoney(bitcoin));
+// $705,726,246.27
+```
+
+### Logger Usage
 
 ```javascript
 const { logger } = require('server-side-tools');
