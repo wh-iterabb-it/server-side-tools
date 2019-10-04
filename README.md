@@ -51,6 +51,8 @@ npm install --save https://github.com/wh-iterabb-it/server-side-tools
 
 ### Convert Usage
 
+#### celsiusToFahrenheit / fahrenheitToCelsius
+
 ```javascript
 const { celsiusToFahrenheit, fahrenheitToCelsius } = require('server-side-tools').convert;
 const { logger } = require('server-side-tools');
@@ -62,6 +64,22 @@ const freezing_fahrenheit = celsiusToFahrenheit(freezing_celsius);
 // 32
 logger.info(freezing_fahrenheit);
 ```
+
+#### kelvinToFahrenheit / kelvinToCelsius
+
+```javascript
+const { kelvinToFahrenheit, kelvinToCelsius } = require('server-side-tools').convert;
+
+const freezingKelvin = 273.15;
+const boilingKelvin =  373.15;
+
+const boilingFahrenheit = kelvinToFahrenheit(boilingKelvin); // 212
+const freezingFahrenheit = kelvinToFahrenheit(freezingKelvin); // 32
+
+const boilingCelsius = kelvinToCelsius(boilingKelvin); // 100
+const freezingCelsius = kelvinToCelsius(freezingKelvin); // 0
+```
+
 
 
 ### Detect Usage
