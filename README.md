@@ -51,6 +51,8 @@ npm install --save https://github.com/wh-iterabb-it/server-side-tools
 
 ### Convert Usage
 
+#### celsiusToFahrenheit / fahrenheitToCelsius
+
 ```javascript
 const { celsiusToFahrenheit, fahrenheitToCelsius } = require('server-side-tools').convert;
 const { logger } = require('server-side-tools');
@@ -63,12 +65,31 @@ const freezing_fahrenheit = celsiusToFahrenheit(freezing_celsius);
 logger.info(freezing_fahrenheit);
 ```
 
+#### kelvinToFahrenheit / kelvinToCelsius
+
+```javascript
+const { kelvinToFahrenheit, kelvinToCelsius } = require('server-side-tools').convert;
+
+const freezingKelvin = 273.15;
+const boilingKelvin =  373.15;
+
+const boilingFahrenheit = kelvinToFahrenheit(boilingKelvin); // 212
+const freezingFahrenheit = kelvinToFahrenheit(freezingKelvin); // 32
+
+const boilingCelsius = kelvinToCelsius(boilingKelvin); // 100
+const freezingCelsius = kelvinToCelsius(freezingKelvin); // 0
+```
+
+
 
 ### Detect Usage
-
 ```javascript
 const { toNumber } = require('server-side-tools').convert;
 const { isNumber } = require('server-side-tools').detect;
+```
+
+#### isNumber
+```javascript
 
 let number = "123";
 console.log(isNumber(number)); // false
@@ -82,8 +103,7 @@ console.log(isNumber(number)); // true
 const { toHHMMSS, toDDHHMMSS, formatMoney } = require('server-side-tools').format;
 ```
 
-#### toDDHHMMSS
-#### toHHMMSS
+#### toDDHHMMSS / toHHMMSS
 ```javascript
 // the application uptime in seconds
 const time = process.uptime();
@@ -98,9 +118,9 @@ console.log(`${toHHMMSS(time)}`);
 
 #### formatMoney
 ```javascript
-const bitcoin = 705726246.26999999;
+const ethereumPrice = 705726246.26999999;
 
-console.log(formatMoney(bitcoin));
+console.log(formatMoney(ethereumPrice));
 // $705,726,246.27
 ```
 
