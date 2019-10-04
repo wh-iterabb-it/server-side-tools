@@ -20,24 +20,25 @@ npm install --save https://github.com/wh-iterabb-it/server-side-tools
 
 ## Features
 
-* convert
+* convert [usage](#convert-usage)
   * kelvinToFahrenheit
   * celsiusToFahrenheit
   * kelvinToCelsius
   * fahrenheitToCelsius
   * toNumber
-* detect
-  * detectURL
-  * isURL
-  * detectHostName
-  * detectRootDomain
-  * isBoolean
-  * isFinite,
-  * isInteger
-  * isNull
-  * isString
-* format
-
+* detect [usage](#detect-usage)
+  * detectURL - uses regex to detect if a string contains a url
+  * isURL - alias for detectURL
+  * detectHostName - given a url string, it will return the hostname 
+  * detectRootDomain - given a url string, it will return the hostname 
+  * isBoolean - true for boolean
+  * isFinite - true for finite int
+  * isInteger - true for integer
+  * isNull - true for null value
+  * isString - true for string value
+* format [usage](#format-usage)
+  * toHHMMSS - turns an amount of seconds into days, hours, minutes seconds
+  * toHHMMSS - turns an amount of seconds into hours, minutes seconds
 * fs
 
 * logger - all of winston logger functions [usage](#logger-usage)
@@ -50,20 +51,19 @@ npm install --save https://github.com/wh-iterabb-it/server-side-tools
 #### Convert Usage
 
 ```javascript
-
-```
-
-
-#### Logger Usage
-
-```javascript
+const { celsiusToFahrenheit, fahrenheitToCelsius } = require('server-side-tools').convert;
 const { logger } = require('server-side-tools');
-// or
-import { logger } from 'server-side-tools';
 
-// all of winston logger functions
-logger.info('test');
+const freezing_celsius = 0;
+
+const freezing_fahrenheit = celsiusToFahrenheit(freezing_celsius);
+
+// 32
+logger.info(freezing_fahrenheit);
 ```
+
+
+#### Detect Usage
 
 ```javascript
 const { toNumber } = require('server-side-tools').convert;
@@ -76,3 +76,16 @@ number = toNumber(number);
 // number === 123
 console.log(isNumber(number)); // true
 ```
+
+#### Logger Usage
+
+```javascript
+const { logger } = require('server-side-tools');
+// or
+import { logger } from 'server-side-tools';
+
+// all of winston logger functions
+logger.info('test');
+```
+
+
