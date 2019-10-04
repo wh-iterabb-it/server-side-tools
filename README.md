@@ -65,10 +65,13 @@ logger.info(freezing_fahrenheit);
 
 
 ### Detect Usage
-
 ```javascript
 const { toNumber } = require('server-side-tools').convert;
 const { isNumber } = require('server-side-tools').detect;
+```
+
+#### isNumber
+```javascript
 
 let number = "123";
 console.log(isNumber(number)); // false
@@ -82,8 +85,7 @@ console.log(isNumber(number)); // true
 const { toHHMMSS, toDDHHMMSS, formatMoney } = require('server-side-tools').format;
 ```
 
-#### toDDHHMMSS
-#### toHHMMSS
+#### toDDHHMMSS / toHHMMSS
 ```javascript
 // the application uptime in seconds
 const time = process.uptime();
@@ -98,9 +100,9 @@ console.log(`${toHHMMSS(time)}`);
 
 #### formatMoney
 ```javascript
-const bitcoin = 705726246.26999999;
+const ethereumPrice = 705726246.26999999;
 
-console.log(formatMoney(bitcoin));
+console.log(formatMoney(ethereumPrice));
 // $705,726,246.27
 ```
 
