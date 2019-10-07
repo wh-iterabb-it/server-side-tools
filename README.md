@@ -44,7 +44,7 @@ npm install --save https://github.com/wh-iterabb-it/server-side-tools
 
 * logger - all of winston logger functions [usage](#logger-usage)
 
-* sanitize - removes white space [usage](#sanitize-usage)
+* sanitize - removes any white space or html/xml tags. [usage](#sanitize-usage)
 
 
 ## Usage
@@ -135,4 +135,11 @@ import { logger } from 'server-side-tools';
 logger.info('test');
 ```
 
+### Sanitize Usage
 
+```javascript
+const { sanitize } = require('server-side-tools');
+
+const clean = sanitize('<br/> tacobell   <br/>');
+// tacobell
+```
