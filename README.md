@@ -39,12 +39,12 @@ npm install --save https://github.com/wh-iterabb-it/server-side-tools
 * format [usage](#format-usage)
   * toHHMMSS - turns an amount of seconds into `${days}:${hours}:${minutes}:${seconds}`
   * toHHMMSS - turns an amount of seconds into `${hours}:${minutes}:${seconds}`
-  * formatMoney - this will return a string, formatted $xx.xx for a given int
+  * formatMoney - this will return a string, formatted `$xxx,xxx,xxx.xx` for a given int
 * fs
 
 * logger - all of winston logger functions [usage](#logger-usage)
 
-* sanitize
+* sanitize - removes white space [usage](#sanitize-usage)
 
 
 ## Usage
